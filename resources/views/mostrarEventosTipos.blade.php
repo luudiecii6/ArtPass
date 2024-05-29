@@ -52,6 +52,7 @@
     </style>
 </head>
 <body>
+    @if(auth()->check())
     <h1>Eventos de tipo: {{ ucfirst($tipo) }}</h1>
     <div class="inicio-button">
         <a class="back-button" href="/index">Volver al Inicio</a>
@@ -70,5 +71,13 @@
             @endforeach
         </ul>
     @endif
+    @else
+    <div style="text-align: center; margin-top: 50px;">
+        <h2>Necesitas iniciar sesión para ver esta página</h2>
+        <a href="{{ route('login.formu') }}" style="text-decoration: none;">
+            <button style="padding: 10px 20px; background-color: #b38600; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Iniciar Sesión</button>
+        </a>
+    </div>
+@endif
 </body>
 </html>

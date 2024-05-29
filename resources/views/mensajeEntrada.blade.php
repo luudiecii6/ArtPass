@@ -45,10 +45,19 @@
     </style>
 </head>
 <body>
+    @if(auth()->check())
     <div class="container">
         <h1>¡Listo, entrada comprada!</h1>
         <p>Gracias por tu compra. Tu entrada ha sido creada exitosamente.</p>
         <a href="{{ route('entradas.comprar', ['instancia' => $instanciaId, 'entradaId' => $entradaId]) }}">Ver Entrada</a>
     </div>
+    @else
+    <div style="text-align: center; margin-top: 50px;">
+        <h2>Necesitas iniciar sesión para ver esta página</h2>
+        <a href="{{ route('login.formu') }}" style="text-decoration: none;">
+            <button style="padding: 10px 20px; background-color: #b38600; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Iniciar Sesión</button>
+        </a>
+    </div>
+@endif
 </body>
 </html>

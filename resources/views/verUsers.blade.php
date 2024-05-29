@@ -84,6 +84,7 @@ button:hover {
     </style>
 </head>
 <body>
+  @if(auth()->check())
   @auth
   <?php
 if (session()->has('nombre_usuario') || session()->has('id')) {
@@ -123,7 +124,7 @@ if (session()->has('nombre_usuario') || session()->has('id')) {
       <td>{{ $usuario->ciudad }}</td>
       <td>{{ $usuario->codigo_postal }}</td>
       <td>{{ $usuario->esAdmin ? 'Sí' : 'No' }}</td>
-      @if($usuario->username != 'pepe' && auth()->user()->esAdmin)
+      @if($usuario->username != 'luudicii6' && auth()->user()->esAdmin)
       <td>
         <form action="{{ route('usuarios.eliminar', ['id' => $usuario->id]) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar a este usuario?')">
           @csrf
@@ -150,5 +151,13 @@ if (session()->has('nombre_usuario') || session()->has('id')) {
 </div>
 <?php } ?>
 @endauth
+@else
+    <div style="text-align: center; margin-top: 50px;">
+        <h2>Necesitas iniciar sesión para ver esta página</h2>
+        <a href="{{ route('login.formu') }}" style="text-decoration: none;">
+            <button style="padding: 10px 20px; background-color: #b38600; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Iniciar Sesión</button>
+        </a>
+    </div>
+@endif
 </body>
 </html>
