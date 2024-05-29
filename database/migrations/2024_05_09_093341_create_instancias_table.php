@@ -19,6 +19,7 @@ return new class extends Migration
            $table->string('ciudad');
            $table->string('calle')->nullable();
            $table->string('comunidad')->nullable();
+           $table->string('evento_id');
            $table->timestamps();
         });
     }
