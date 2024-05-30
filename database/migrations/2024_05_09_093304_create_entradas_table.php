@@ -20,7 +20,7 @@ return new class extends Migration
              $table->string('nombre_usuario');
              $table->string('apellidos_usuario');
              $table->string('codigo_qr', 5000)->unique();
-             $table->foreignId('instancia_id')->constrained('entradas')->onDelete('cascade');
+             $table->foreignId('instancia_id')->constrained('instancia')->onDelete('cascade');
              $table->string('user_id');
              $table->timestamps();
         });
