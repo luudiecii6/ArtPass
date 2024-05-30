@@ -19,7 +19,7 @@ return new class extends Migration
              $table->time('horario_evento');
              $table->string('nombre_usuario');
              $table->string('apellidos_usuario');
-             $table->string('codigo_qr')->unique();
+             $table->text('codigo_qr')->unique();
              $table->string('instancia_id');
              $table->string('user_id');
              $table->timestamps();
