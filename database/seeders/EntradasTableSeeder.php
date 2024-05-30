@@ -25,7 +25,7 @@ class EntradasTableSeeder extends Seeder
         $usuarios = User::all();
 
         foreach ($instancias as $instancia) {
-            for ($i = 0; $i < 50; $i++) {
+            for ($i = 0; $i < 10; $i++) {
                 // Seleccionar un usuario aleatorio
                 $usuario = $usuarios->random();
 

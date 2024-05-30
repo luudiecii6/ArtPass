@@ -19,7 +19,7 @@ return new class extends Migration
            $table->string('ciudad');
            $table->string('calle')->nullable();
            $table->string('comunidad')->nullable();
-           $table->string('evento_id');
+           $table->foreignId('evento_id')->constrained('eventos')->onDelete('cascade');
            $table->timestamps();
         });
     }
