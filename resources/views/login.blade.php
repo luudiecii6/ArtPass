@@ -113,7 +113,7 @@
                 </script>
             @endif
             <div class="left-half">
-                <img src="{{ asset('imagenes/Logo.png') }}" alt="Logo" class="logo-img">
+                <img src="{{ secure_asset('imagenes/Logo.png') }}" alt="Logo" class="logo-img">
             </div>
             <div class="right-half">
                 <div class="form-container">
