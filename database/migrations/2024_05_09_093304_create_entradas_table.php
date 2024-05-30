@@ -21,7 +21,7 @@ return new class extends Migration
              $table->string('apellidos_usuario');
              $table->string('codigo_qr', 5000)->unique();
              $table->foreignId('instancia_id')->constrained('instancias')->onDelete('cascade');
-             $table->string('user_id');
+             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
              $table->timestamps();
         });
     }
