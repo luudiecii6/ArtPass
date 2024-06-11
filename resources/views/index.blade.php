@@ -1,4 +1,3 @@
-<!-- resources/views/artpass.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,183 +9,230 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff8e1; /* Fondo claro */
+            background-color: #fff8e1;
         }
 
         header {
-            background-color: #b38600; /* Marrón dorado */
+            background-color: #b38600;
             color: #fff;
             padding: 10px 0;
+            position: relative;
         }
 
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 1200px;
             margin: auto;
-            overflow: hidden;
-        }
-
-        #branding {
-            float: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         #branding h1 {
             margin: 0;
-            color: #ffeb3b; /* Amarillo */
-        }
-
-        .cerrarSesion {
-            color: #fff;
-            border: none;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px;
-            display: block;
-            background-color: #b38600;
-            font-size: 17px;
+            color: #ffeb3b;
         }
 
         nav {
-            float: right;
-            margin-top: 10px;
+            position: relative;
         }
 
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
+            display: flex;
+            align-items: center;
         }
 
         nav ul li {
-            float: left;
-            display: inline-block;
             margin-left: 20px;
         }
 
-        nav ul li a {
+        nav ul li a, nav ul li select {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             padding: 10px;
             display: block;
-        }
-
-        nav ul li:hover > a {
-            background-color: #ffeb3b;
-            color: #000;
-        }
-
-        nav ul li select {
-            background-color: #b38600; /* Marrón dorado */
-            color: #fff;
+            background-color: #b38600;
             border: none;
-            padding: 10px;
-            font-size: 16px;
             cursor: pointer;
         }
 
-        nav ul li select option {
-            background-color: #fff;
-            color: #000;
-        }
-
-        nav ul li select:focus {
-            outline: none;
-        }
-
-        nav ul li select option:hover {
+        nav ul li a:hover, nav ul li select:hover, .cerrarSesion:hover {
             background-color: #ffeb3b;
             color: #000;
         }
 
-        nav ul li select option a {
-            color: #000;
+        .cerrarSesion {
+            color: #fff;
+            background-color: #b38600;
+            border: none;
             text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 17px;
         }
 
         .bienvenido {
-            margin-left: 600px;
+            color: #ffeb3b;
         }
 
         .portada {
             width: 100%;
             height: auto;
-            max-height: 400px; /* Limita la altura de la imagen */
+            max-height: 400px;
             object-fit: cover;
         }
+
         .content {
             display: flex;
             flex-direction: column;
             margin-top: 20px;
         }
+
         .section {
-            width: 100%;
             margin: 10px 0;
             padding: 20px;
             background-color: #fff8e1;
-            border: 1px solid #b38600; /* Borde marrón dorado */
+            border: 1px solid #b38600;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .section h2 {
-            color: #b38600; /* Marrón dorado */
-            border-bottom: 2px solid #ffeb3b; /* Amarillo */
+            color: #b38600;
+            border-bottom: 2px solid #ffeb3b;
             padding-bottom: 10px;
         }
-        .carousel {
+
+        .events-container {
             display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .carousel::-webkit-scrollbar {
-            display: none; /* Ocultar scrollbar */
-        }
-        .carousel-item {
-            width: 150px; /* Ancho de cada evento */
-            height: 150px; /* Altura de cada evento */
-            margin: 10px;
+
+        .event {
             background-color: #fff;
             border: 1px solid #b38600;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
-            text-align: center;
             padding: 10px;
+            flex: 1 1 30%;
+            min-width: 200px;
+            text-align: center;
         }
-        .carousel-btn {
-            background-color: #b38600;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            margin: 10px;
-        }
+
         footer {
-            background-color: #b38600; /* Marrón dorado */
+            background-color: #b38600;
             color: #fff;
             padding: 20px 0;
         }
+
         footer .container {
             text-align: center;
         }
-        footer p {
-            margin: 0;
-        }
-        footer ul li {
-            padding: 0;
+
+        footer ul {
             list-style: none;
-        }
-        footer ul li {
+            padding: 0;
             display: flex;
-            margin: 0 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .icon {
+
+        footer ul li {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        footer ul li .icon {
             width: 50px;
             height: 50px;
-            padding: 20px;
-            align-content: center;
+            margin-right: 10px;
         }
-        .icono {
-            display: inline-block;
+
+        /* Menu hamburguesa */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
         }
-        
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px;
+        }
+
+        @media (max-width: 768px) {
+            header, nav ul {
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Asegura que el menú se despliegue debajo del encabezado */
+                left: 0;
+                width: 100%;
+                background-color: #b38600; /* Fondo para el menú desplegable */
+                padding: 0;
+                z-index: 1000;
+            }
+
+            nav ul li {
+                margin: 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .bienvenido {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .event {
+                flex: 1 1 100%;
+            }
+
+            footer ul li {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer ul li .icon {
+                margin: 0 0 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            .section {
+                padding: 10px;
+            }
+        }
     </style>
     <script>
         function redirectToTipo(tipo) {
@@ -194,6 +240,15 @@
                 window.location.href = `/eventos/${tipo}`;
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('nav ul');
+
+            menuToggle.addEventListener('click', function() {
+                navUl.classList.toggle('show');
+            });
+        });
     </script>
 </head>
 <body>
@@ -203,12 +258,15 @@
             <div id="branding">
                 <h1>ArtPass</h1>
             </div>
-            @auth
-            <div>
-                <span class="bienvenido">Bienvenido, {{ auth()->user()->nombre }}</span>
+            <div class="bienvenido">
+                Bienvenido, {{ auth()->user()->nombre }}
             </div>
-            @endauth
             <nav>
+                <div class="menu-toggle">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 <ul>
                     <li>
                         <label for="tipos" style="color: #fff; font-weight: bold;">Tipos de eventos:</label>
@@ -222,72 +280,63 @@
                         </select>
                     </li>
                     <li><a href="{{ route('entradas.usuario') }}">Tus Entradas</a></li>
-                    @auth
-                        @if(auth()->user()->esAdmin == 1)
-                            <li><a href="{{ route('events.create') }}">Crear Evento</a></li>
-                            <li><a href="{{ route('usuarios.index') }}">Ver Usuarios</a></li>
-                        @endif
+                    @if(auth()->user()->esAdmin == 1)
+                        <li><a href="{{ route('events.create') }}">Crear Evento</a></li>
+                        <li><a href="{{ route('usuarios.index') }}">Ver Usuarios</a></li>
+                    @endif
                     <li>
                         <form action="{{ route('logout') }}" method="POST" class="form-logout">
                             @csrf
                             <button type="submit" class="cerrarSesion">Cerrar Sesión</button>
                         </form>
                     </li>
-                    @endauth
                 </ul>
             </nav>
         </div>
     </header>
     <img src="{{ asset('imagenes/portada.jpg') }}" alt="Portada" class="portada">
-    <div class="content">
+    <div class="content container">
         @foreach ($sections as $index => $section)
         <div class="section">
             <h2>{{ $section['title'] }}</h2>
-            <div class="events">
-                @php
-                    $chunkedEvents = array_chunk($section['events']->all(), 15);
-                @endphp
-    
-                @foreach ($chunkedEvents as $eventsChunk)
-                    <div class="events-container">
-                        @foreach ($eventsChunk as $event)
-                            <div class="event">
-                                <h3>{{ $event->nombre }}</h3>
-                                <!-- Otros detalles del evento si es necesario -->
-                                <a href="{{ route('evento.show', ['id' => $event->id]) }}">Más info</a>
-                            </div>
-                        @endforeach
-                    </div>
+            <div class="events-container">
+                @foreach ($section['events']->chunk(15) as $eventsChunk)
+                    @foreach ($eventsChunk as $event)
+                        <div class="event">
+                            <h3>{{ $event->nombre }}</h3>
+                            <!-- Otros detalles del evento si es necesario -->
+                            <a href="{{ route('evento.show', ['id' => $event->id]) }}">Más info</a>
+                        </div>
+                    @endforeach
                 @endforeach
             </div>
         </div>
         @endforeach
     </div>
-    
     <footer>
         <div class="container">
             <p>¿Por qué ArtPass?</p>
             <ul>
-                <div class="icono">
+                <li>
                     <img src="{{ asset('imagenes/entrada.png') }}" class="icon">
-                    <li>Entradas oficiales garantizadas</li>
-                </div>
-                <div class="icono">
+                    <span>Entradas oficiales garantizadas</span>
+                </li>
+                <li>
                     <img src="{{ asset('imagenes/smartphone.png') }}" class="icon">
-                    <li>Seguridad y protección de datos</li>
-                </div>
-                <div class="icono">
+                    <span>Seguridad y protección de datos</span>
+                </li>
+                <li>
                     <img src="{{ asset('imagenes/ilusionista.png') }}" class="icon">
-                    <li>Más de 3000 eventos</li>
-                </div>
-                <div class="icono">
+                    <span>Más de 3000 eventos</span>
+                </li>
+                <li>
                     <img src="{{ asset('imagenes/exclusivo.png') }}" class="icon">
-                    <li>Ventajas exclusivas</li>
-                </div>
-                <div class="icono">
+                    <span>Ventajas exclusivas</span>
+                </li>
+                <li>
                     <img src="{{ asset('imagenes/metodo_pago.png') }}" class="icon">
-                    <li>Múltiples métodos de pago</li>
-                </div>
+                    <span>Múltiples métodos de pago</span>
+                </li>
             </ul>
         </div>
     </footer>
@@ -298,6 +347,6 @@
             <button style="padding: 10px 20px; background-color: #b38600; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Iniciar Sesión</button>
         </a>
     </div>
-@endif
+    @endif
 </body>
 </html>
